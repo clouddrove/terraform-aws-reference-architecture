@@ -1,0 +1,13 @@
+name: tf-checks
+permissions: write-all
+on:
+  pull_request:
+    paths:
+      - '**/*.tf'
+      - '*.tf'
+jobs:
+  example:
+    if: github.actor != 'dependabot[bot]'
+    uses: clouddrove/github-shared-workflows/.github/workflows/tf-checks.yml@master
+    with:
+      provider: none
